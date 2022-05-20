@@ -1,0 +1,76 @@
+openapi: "3.0.2"
+info:
+  title: API Title
+  version: "1.0"
+tags:
+  - name: product
+
+paths:
+  /api/product/findAll:
+    get:
+      tags:
+        - product
+      responses:
+        "200":
+          description: OK
+
+  /api/product/create:
+    post:
+      tags:
+        - product
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                product_name:
+                  type: string
+                price:
+                  type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/product/update/{product_id}:
+    post:
+      tags:
+        - product
+      parameters:
+        - name: product_id
+          in: path
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                product_name:
+                  type: string
+                price:
+                  type: integer
+      responses:
+        "200":
+          description: OK
+
+  /api/product/findById/{product_id}:
+    get:
+      tags:
+        - product
+      parameters:
+        - name: product_id
+          in: path
+      responses:
+        "200":
+          description: OK
+
+  /api/products/delete/{product_id}:
+    delete:
+      tags:
+        - product
+      parameters:
+        - name: product_id
+          in: path
+      responses:
+        "200":
+          description: OK
