@@ -3,9 +3,15 @@ const { User } = db;
 const Op = db.Sequelize.Op;
 exports.create = (req, res) => {
   const user = {
-    username: req.body.username,
-    password: req.body.password,
     email: req.body.email,
+    password: req.body.password,
+    first_name: req.body.first_name,
+    last_name: req.body.last_name,
+    address: req.body.address,
+    city: req.body.city,
+    country: req.body.country,
+    zipcode: req.body.zipcode,
+    mobile: req.body.mobile,
   };
 
   User.create(user)
@@ -33,7 +39,7 @@ exports.findAll = (req, res) => {
 
 exports.login = (req, res) => {
   User.findOne({
-    where: { username: req.body.username, password: req.body.password },
+    where: { email: req.body.email, password: req.body.password },
   })
     .then((data) => {
       res.send(data);
