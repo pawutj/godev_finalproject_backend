@@ -93,11 +93,23 @@ paths:
             schema:
               type: object
               properties:
-                username:
+                email:
                   type: string
                 password:
                   type: string
-                email:
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                address:
+                  type: string
+                city:
+                  type: string
+                country:
+                  type: string
+                zipcode:
+                  type: string
+                mobile:
                   type: string
       responses:
         "200":

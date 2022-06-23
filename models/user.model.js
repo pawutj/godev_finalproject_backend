@@ -8,14 +8,39 @@ module.exports = (sequelize, Sequelize) => {
       autoIncrement: true,
     },
 
-    username: {
-      type: Sequelize.STRING,
-    },
-
     email: {
       type: Sequelize.STRING,
     },
+
     password: {
+      type: Sequelize.STRING,
+    },
+
+    first_name: {
+      type: Sequelize.STRING,
+    },
+
+    last_name: {
+      type: Sequelize.STRING,
+    },
+
+    address: {
+      type: Sequelize.STRING,
+    },
+
+    city: {
+      type: Sequelize.STRING,
+    },
+
+    country: {
+      type: Sequelize.STRING,
+    },
+
+    zipcode: {
+      type: Sequelize.STRING,
+    },
+
+    mobile: {
       type: Sequelize.STRING,
     },
   });
