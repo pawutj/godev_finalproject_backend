@@ -5,6 +5,12 @@ exports.create = (req, res) => {
   const product = {
     product_name: req.body.product_name,
     price: req.body.price,
+    product_cat: req.body.product_cat,
+    stock: req.body.stock,
+    product_detail: req.body.product_detail,
+    color: req.body.color,
+    size: req.body.size,
+    image: req.body.image
   };
 
   Product.create(product)
@@ -20,6 +26,20 @@ exports.create = (req, res) => {
 
 exports.findAll = (req, res) => {
   Product.findAll({})
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "error",
+      });
+    });
+};
+
+exports.findByCat = (req, res) => {
+  Product.findAll({
+    where: { product_cat: req.param("product_cat") },
+  })
     .then((data) => {
       res.send(data);
     })
@@ -48,6 +68,12 @@ exports.update = async (req, res) => {
   const product = {
     product_name: req.body.product_name,
     price: req.body.price,
+    product_cat: req.body.product_cat,
+    stock: req.body.stock,
+    product_detail: req.body.product_detail,
+    color: req.body.color,
+    size: req.body.size,
+    image: req.body.image
   };
 
   try {
