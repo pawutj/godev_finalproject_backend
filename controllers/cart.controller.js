@@ -19,6 +19,18 @@ exports.create = (req, res) => {
     });
 };
 
+exports.checkOut = (req, res) => {
+  Cart.update({ status: "paid" }, { where: { user_id: 1 } })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).send({
+        message: err.message || "error",
+      });
+    });
+};
+
 exports.findAll = (req, res) => {
   Cart.findAll({ include: [{ model: db.Product }] })
     .then((data) => {
