@@ -10,7 +10,7 @@ exports.create = (req, res) => {
     product_detail: req.body.product_detail,
     color: req.body.color,
     size: req.body.size,
-    image: req.body.image
+    image: req.body.image,
   };
 
   Product.create(product)
@@ -73,7 +73,7 @@ exports.update = async (req, res) => {
     product_detail: req.body.product_detail,
     color: req.body.color,
     size: req.body.size,
-    image: req.body.image
+    image: req.body.image,
   };
 
   try {
@@ -95,7 +95,7 @@ exports.update = async (req, res) => {
   }
 };
 
-exports.cutStock = async (req, res) => {
+exports.cutStockById = async (req, res) => {
   try {
     const oldProduct = await Product.findOne({
       where: { product_id: req.param("product_id") },

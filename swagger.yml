@@ -65,6 +65,17 @@ paths:
         "200":
           description: OK
 
+  /api/product/cutStockById/{product_id}:
+    get:
+      tags:
+        - product
+      parameters:
+        - name: product_id
+          in: path
+      responses:
+        "200":
+          description: OK
+
   /api/products/delete/{product_id}:
     delete:
       tags:
