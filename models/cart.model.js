@@ -8,10 +8,6 @@ module.exports = (sequelize, Sequelize) => {
       autoIncrement: true,
     },
 
-    product_id: {
-      type: Sequelize.INTEGER,
-    },
-
     user_id: {
       type: Sequelize.INTEGER,
     },

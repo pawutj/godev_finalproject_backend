@@ -20,7 +20,7 @@ exports.create = (req, res) => {
 };
 
 exports.findAll = (req, res) => {
-  Cart.findAll({})
+  Cart.findAll({ include: [{ model: db.Product }] })
     .then((data) => {
       res.send(data);
     })

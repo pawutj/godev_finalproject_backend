@@ -17,4 +17,6 @@ const db = { Sequelize, sequelize };
 db.Product = require("./product.model.js")(sequelize, Sequelize);
 db.User = require("./user.model.js")(sequelize, Sequelize);
 db.Cart = require("./cart.model.js")(sequelize, Sequelize);
+
+db.Cart.belongsTo(db.Product, { foreignKey: "product_id" });
 module.exports = db;
