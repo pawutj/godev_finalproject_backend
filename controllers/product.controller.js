@@ -69,6 +69,27 @@ exports.update = async (req, res) => {
   }
 };
 
+exports.cutStock = async (req, res) => {
+  try {
+    const oldProduct = await Product.findOne({
+      where: { product_id: req.param("product_id") },
+    });
+
+    oldProduct.set({
+      ...oldProduct,
+      stock: oldProduct.stock - 1,
+    });
+
+    const data = await oldProduct.save();
+
+    res.send(data);
+  } catch (err) {
+    res.status(500).send({
+      message: err.message || "error",
+    });
+  }
+};
+
 exports.delete = (req, res) => {
   Product.destroy({
     where: {
