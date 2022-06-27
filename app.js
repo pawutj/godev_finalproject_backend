@@ -18,7 +18,7 @@ db.sequelize.sync({ alter: true }).then(() => {
 
 require("./routes/product.route")(app);
 require("./routes/user.route")(app);
-
+require("./routes/cart.route")(app);
 const swaggerUi = require("swagger-ui-express");
 const YAML = require("yamljs");
 const swaggerDocument = YAML.load("./swagger.yml");

@@ -5,8 +5,35 @@ info:
 tags:
   - name: product
   - name: user
+  - name: cart
 
 paths:
+  /api/cart/findAll:
+    get:
+      tags:
+        - cart
+      responses:
+        "200":
+          description: OK
+
+  /api/cart/create:
+    post:
+      tags:
+        - cart
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                user_id:
+                  type: integer
+      responses:
+        "200":
+          description: OK
+
   /api/product/findAll:
     get:
       tags:
